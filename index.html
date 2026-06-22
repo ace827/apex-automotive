@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>APEX Automotive | Auto Repair Shop | Union City, GA</title>
+<meta name="description" content="APEX Automotive — 4.7-star rated auto repair in Union City, GA. Honest, expert service for all makes & models. Call (770) 892-1357.">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink:    #0a1628;
+  --ink2:   #0d1b2a;
+  --ink3:   #112236;
+  --amber:  #d97706;
+  --amber2: #f59e0b;
+  --amber3: #b45309;
+  --off:    #f8f9fb;
+  --warm:   #f0f4f8;
+  --border: #dde4ed;
+  --mid:    #64748b;
+  --dark:   #1e3a5f;
+  --card:   #f0f4f8;
+  --white:  #ffffff;
+  --gold:   #f59e0b;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',sans-serif;color:var(--ink);background:var(--white);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,h4,h5{font-family:'Raleway',sans-serif}
+a{color:inherit;text-decoration:none}
+
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;border-radius:5px;font-family:'Raleway',sans-serif;font-weight:700;font-size:15px;letter-spacing:.04em;cursor:pointer;transition:all .22s;border:none;white-space:nowrap}
+.btn-primary{background:var(--amber);color:#fff;box-shadow:0 4px 16px rgba(217,119,6,.3)}
+.btn-primary:hover{background:var(--amber2);transform:translateY(-2px);box-shadow:0 8px 24px rgba(217,119,6,.4)}
+.btn-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,.55)}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{background:var(--ink2)}
+.eyebrow{font-family:'Raleway',sans-serif;font-size:11.5px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--amber)}
+.eyebrow-light{color:var(--amber2)}
+
+/* REVEAL */
+.rev,.rl,.rr,.rfade{opacity:0;transition:opacity .65s cubic-bezier(.22,1,.36,1),transform .65s cubic-bezier(.22,1,.36,1)}
+.rev{transform:translateY(30px)}.rl{transform:translateX(-38px)}.rr{transform:translateX(38px)}.rfade{transform:scale(.96)}
+.rev.in,.rl.in,.rr.in,.rfade.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* TOP BAR */
+.topbar{background:var(--ink);padding:9px 0;border-bottom:1px solid rgba(255,255,255,.06)}
+.topbar-inner{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.topbar-items{display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.tb-item{display:flex;align-items:center;gap:6px;font-size:12.5px;color:rgba(255,255,255,.7)}
+.tb-item svg{color:var(--amber2);flex-shrink:0}
+.tb-cta{background:var(--amber);color:#fff;padding:6px 16px;border-radius:20px;font-weight:700;font-size:12.5px;font-family:'Raleway',sans-serif;letter-spacing:.04em;display:flex;align-items:center;gap:6px;transition:background .2s}
+.tb-cta:hover{background:var(--amber2)}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:90;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);transition:box-shadow .25s}
+nav.scrolled{box-shadow:0 2px 20px rgba(10,22,40,.1)}
+.nav-inner{height:70px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.nav-brand{display:flex;align-items:center;gap:12px}
+.nav-mark{width:42px;height:42px;background:linear-gradient(135deg,var(--ink) 0%,var(--ink3) 100%);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 3px 12px rgba(10,22,40,.25)}
+.nav-mark svg{color:var(--amber)}
+.nav-bname{font-family:'Raleway',sans-serif;font-weight:900;font-size:18px;color:var(--ink);line-height:1.1;letter-spacing:-.01em}
+.nav-bcity{font-size:11.5px;color:var(--mid);font-weight:500}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-size:14px;font-weight:600;color:var(--dark);transition:color .18s;font-family:'Raleway',sans-serif;position:relative}
+.nav-links a::after{content:'';position:absolute;bottom:-3px;left:0;width:0;height:2px;background:var(--amber);transition:width .2s}
+.nav-links a:hover{color:var(--amber)}.nav-links a:hover::after{width:100%}
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:5px;border-radius:5px}
+.hamburger:hover{background:var(--warm)}
+@media(max-width:920px){.nav-links{display:none}.hamburger{display:flex}}
+
+/* MOBILE MENU */
+.mob-menu{display:none;position:fixed;inset:0;background:var(--white);z-index:200;flex-direction:column}
+.mob-menu.open{display:flex}
+.mob-menu-hdr{display:flex;align-items:center;justify-content:space-between;padding:18px 22px;border-bottom:1px solid var(--border)}
+.mob-menu-links{padding:8px 0;flex:1}
+.mob-menu-links a{display:block;padding:15px 26px;font-family:'Raleway',sans-serif;font-size:18px;font-weight:700;color:var(--ink);border-bottom:1px solid var(--border)}
+.mob-menu-links a:hover{background:var(--warm);color:var(--amber)}
+.mob-menu-foot{padding:18px 24px}
+.mob-close{background:none;border:none;font-size:26px;color:var(--mid);cursor:pointer}
+
+/* HERO */
+.hero{position:relative;min-height:94vh;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=1920&q=90');background-size:cover;background-position:center}
+.hero-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(110deg,rgba(8,16,32,.93) 0%,rgba(8,16,32,.75) 55%,rgba(8,16,32,.4) 100%)}
+.hero-bg::after{content:'';position:absolute;bottom:0;left:0;right:0;height:180px;background:linear-gradient(to top,rgba(10,22,40,.55),transparent)}
+.hero-wrap{position:relative;z-index:2;padding:96px 0 72px;width:100%}
+.hero-grid{display:grid;grid-template-columns:1fr 360px;gap:52px;align-items:center}
+.hero-badge{display:inline-flex;align-items:center;gap:9px;background:rgba(217,119,6,.15);border:1px solid rgba(217,119,6,.35);color:rgba(255,255,255,.9);font-size:13px;font-weight:600;padding:9px 18px;border-radius:30px;margin-bottom:22px;letter-spacing:.04em}
+.hero-badge svg{color:var(--gold)}
+.hero h1{font-size:clamp(38px,5.5vw,68px);font-weight:900;color:#fff;line-height:1.06;margin-bottom:20px;letter-spacing:-.02em}
+.hero h1 em{font-style:normal;color:var(--amber2)}
+.hero-sub{font-size:18px;color:rgba(255,255,255,.75);line-height:1.68;margin-bottom:34px;max-width:520px}
+.hero-ctas{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:40px}
+.hero-proof{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.proof-item{display:flex;align-items:center;gap:8px;color:rgba(255,255,255,.68);font-size:13.5px;font-weight:500}
+.proof-item svg{color:var(--amber2);flex-shrink:0}
+.proof-div{width:1px;height:22px;background:rgba(255,255,255,.18)}
+
+/* Hero card */
+.hcard{background:rgba(255,255,255,.97);border-radius:14px;overflow:hidden;box-shadow:0 24px 64px rgba(0,0,0,.3);border:1px solid rgba(255,255,255,.4)}
+.hcard-hdr{background:linear-gradient(135deg,var(--ink),var(--ink3));padding:20px 24px;display:flex;align-items:center;gap:12px}
+.hcard-hdr svg{color:var(--amber)}
+.hcard-hdr-name{font-family:'Raleway',sans-serif;font-weight:800;font-size:15px;color:#fff}
+.hcard-hdr-sub{font-size:12px;color:rgba(255,255,255,.65);margin-top:2px}
+.hcard-body{padding:22px 24px}
+.hci{display:flex;align-items:flex-start;gap:12px;padding:11px 0;border-bottom:1px solid #f0f0f0}
+.hci:last-child{border-bottom:none;padding-bottom:0}
+.hci-icon{width:36px;height:36px;border-radius:8px;background:var(--warm);display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.hci-icon svg{color:var(--amber)}
+.hci-lbl{font-size:10.5px;font-weight:700;text-transform:uppercase;letter-spacing:.1em;color:#a0a0a0;margin-bottom:3px}
+.hci-val{font-size:14px;font-weight:600;color:var(--ink);line-height:1.4}
+.hcard-cta{display:flex;margin:18px 24px 24px;background:var(--amber);color:#fff;border-radius:7px;padding:13px;align-items:center;justify-content:center;gap:9px;font-family:'Raleway',sans-serif;font-weight:700;font-size:14px;transition:background .2s;box-shadow:0 4px 14px rgba(217,119,6,.3)}
+.hcard-cta:hover{background:var(--amber2)}
+
+@media(max-width:980px){.hero-grid{grid-template-columns:1fr}.hcard{max-width:420px}.hero{min-height:auto}.hero-wrap{padding:72px 0 56px}}
+
+/* STATS BAND */
+.stats{background:var(--amber);padding:34px 0}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.stat-item{text-align:center}
+.stat-num{font-family:'Raleway',sans-serif;font-size:clamp(30px,4vw,46px);font-weight:900;color:#fff;line-height:1}
+.stat-lbl{font-size:13.5px;color:rgba(255,255,255,.82);margin-top:6px;font-weight:500}
+@media(max-width:680px){.stats-grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+
+/* HOW IT WORKS */
+.how{padding:96px 0;background:var(--ink)}
+.how-hdr{text-align:center;margin-bottom:60px}
+.how-hdr h2{font-size:clamp(26px,3.8vw,44px);font-weight:900;color:#fff;margin-top:12px}
+.how-hdr p{color:rgba(255,255,255,.55);font-size:16px;margin-top:14px;max-width:480px;margin-left:auto;margin-right:auto;line-height:1.65}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,.06);border-radius:14px;overflow:hidden}
+.how-step{padding:38px 26px;background:rgba(255,255,255,.03);transition:background .25s}
+.how-step:hover{background:rgba(255,255,255,.07)}
+.how-step-tag{display:inline-block;background:rgba(217,119,6,.2);color:var(--amber2);font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:4px 10px;border-radius:20px;margin-bottom:14px}
+.how-step-big{font-family:'Raleway',sans-serif;font-size:58px;font-weight:900;color:rgba(217,119,6,.12);line-height:1;margin-bottom:14px}
+.how-step-icon{width:48px;height:48px;background:var(--amber);border-radius:11px;display:flex;align-items:center;justify-content:center;margin-bottom:16px;box-shadow:0 4px 14px rgba(217,119,6,.4)}
+.how-step-icon svg{color:#fff}
+.how-step h3{font-family:'Raleway',sans-serif;font-weight:800;font-size:17px;color:#fff;margin-bottom:9px}
+.how-step p{font-size:14px;color:rgba(255,255,255,.52);line-height:1.65}
+@media(max-width:800px){.how-steps{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.how-steps{grid-template-columns:1fr}}
+
+/* SERVICES */
+.services{padding:96px 0;background:var(--off)}
+.services-hdr{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:end;margin-bottom:56px}
+.services-hdr-r{display:flex;flex-direction:column;align-items:flex-end}
+.services-hdr-r p{font-size:15px;color:var(--mid);line-height:1.65;max-width:380px;text-align:right}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc-card{background:var(--white);border-radius:13px;overflow:hidden;border:1px solid var(--border);transition:box-shadow .25s,transform .25s}
+.svc-card:hover{box-shadow:0 14px 44px rgba(10,22,40,.1);transform:translateY(-4px)}
+.svc-img{height:195px;background-size:cover;background-position:center;position:relative}
+.svc-img::after{content:'';position:absolute;inset:0;background:linear-gradient(to bottom,transparent 35%,rgba(10,22,40,.72) 100%)}
+.svc-img-lbl{position:absolute;bottom:13px;left:15px;z-index:1;font-family:'Raleway',sans-serif;font-weight:800;font-size:17px;color:#fff;text-shadow:0 2px 6px rgba(0,0,0,.4)}
+.svc-body{padding:20px}
+.svc-body p{font-size:14px;color:var(--mid);line-height:1.65;margin-bottom:14px}
+.svc-body ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+.svc-body ul li{font-size:13px;color:var(--dark);display:flex;align-items:center;gap:7px}
+.svc-body ul li svg{color:var(--amber);flex-shrink:0}
+@media(max-width:880px){.svc-grid{grid-template-columns:1fr 1fr}.services-hdr{grid-template-columns:1fr}.services-hdr-r{align-items:flex-start}.services-hdr-r p{text-align:left}}
+@media(max-width:520px){.svc-grid{grid-template-columns:1fr}}
+
+/* WHY INDEPENDENT */
+.why{padding:96px 0;background:var(--white)}
+.why-hdr{text-align:center;margin-bottom:52px}
+.why-hdr h2{font-size:clamp(24px,3.5vw,42px);font-weight:900;color:var(--ink);margin-top:12px}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.why-col{border-radius:13px;padding:32px}
+.why-col-bad{background:var(--warm);border:1px solid var(--border)}
+.why-col-good{background:var(--ink);color:#fff}
+.why-col h3{font-family:'Raleway',sans-serif;font-weight:800;font-size:20px;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.why-col-bad h3{color:var(--mid)}.why-col-good h3{color:#fff}
+.why-item{display:flex;align-items:flex-start;gap:12px;margin-bottom:13px}
+.why-item:last-child{margin-bottom:0}
+.why-item p{font-size:15px;line-height:1.55}
+.why-col-bad .why-item p{color:var(--mid)}.why-col-good .why-item p{color:rgba(255,255,255,.82)}
+@media(max-width:700px){.why-grid{grid-template-columns:1fr}}
+
+/* ABOUT */
+.about{padding:96px 0;background:var(--off)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.about-imgs{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.about-img-main{grid-column:1/-1;height:280px;border-radius:13px;background-image:url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=900&q=85');background-size:cover;background-position:center}
+.about-img-b{height:180px;border-radius:11px;background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=85');background-size:cover;background-position:center}
+.about-img-c{height:180px;border-radius:11px;background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=600&q=85');background-size:cover;background-position:center}
+.about-badge{background:var(--amber);border-radius:10px;padding:18px 22px;color:#fff;font-family:'Raleway',sans-serif;margin-top:14px;display:inline-block}
+.about-badge-num{font-size:34px;font-weight:900;line-height:1}
+.about-badge-lbl{font-size:12px;opacity:.85;font-weight:600;margin-top:3px}
+.about-checks{margin-top:22px;display:flex;flex-direction:column;gap:14px}
+.ac{display:flex;align-items:flex-start;gap:12px}
+.ac-icon{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--amber),var(--amber2));display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;box-shadow:0 2px 8px rgba(217,119,6,.3)}
+.ac-icon svg{color:#fff}
+.ac p{font-size:15px;color:var(--mid);line-height:1.6}
+.ac p strong{color:var(--ink);font-weight:600}
+@media(max-width:840px){.about-grid{grid-template-columns:1fr}.about-img-main{height:240px}}
+
+/* REVIEWS */
+.reviews{padding:96px 0;background:var(--ink2);position:relative;overflow:hidden}
+.reviews::before{content:'';position:absolute;top:-80px;right:-80px;width:400px;height:400px;background:radial-gradient(circle,rgba(217,119,6,.12) 0%,transparent 70%)}
+.rev-hdr{text-align:center;margin-bottom:52px}
+.rev-hdr h2{font-size:clamp(24px,3.5vw,42px);font-weight:900;color:#fff;margin-top:10px}
+.rev-stars{display:flex;align-items:center;justify-content:center;gap:5px;margin:14px 0 8px}
+.rev-stars svg{color:var(--gold)}
+.rev-rating{font-family:'Raleway',sans-serif;font-size:50px;font-weight:900;color:#fff;line-height:1;text-align:center}
+.rev-count{font-size:13px;color:rgba(255,255,255,.45);text-align:center;margin-top:4px;font-weight:600}
+.rev-feature{background:rgba(255,255,255,.05);border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:26px 30px;margin-bottom:44px;max-width:720px;margin-left:auto;margin-right:auto;position:relative}
+.rev-feature::before{content:'\201C';position:absolute;top:-18px;left:18px;font-size:160px;color:rgba(217,119,6,.08);font-family:Georgia,serif;line-height:1}
+.rev-feature p{font-size:19px;color:rgba(255,255,255,.88);font-style:italic;line-height:1.65;position:relative;z-index:1}
+.rev-feature cite{display:block;font-style:normal;font-size:13px;color:rgba(255,255,255,.42);margin-top:14px;font-weight:600;position:relative;z-index:1}
+.rev-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rev-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);border-radius:11px;padding:22px;transition:background .2s}
+.rev-card:hover{background:rgba(255,255,255,.09)}
+.rc-stars{display:flex;gap:3px;margin-bottom:11px}
+.rc-stars svg{color:var(--gold)}
+.rc-text{font-size:14px;color:rgba(255,255,255,.76);line-height:1.67;margin-bottom:15px}
+.rc-author{display:flex;align-items:center;gap:10px}
+.rc-av{width:34px;height:34px;border-radius:50%;background:var(--amber3);display:flex;align-items:center;justify-content:center;font-family:'Raleway',sans-serif;font-weight:700;font-size:13px;color:#fff;flex-shrink:0}
+.rc-name{font-size:13px;font-weight:600;color:rgba(255,255,255,.55)}
+.rc-src{font-size:11px;color:rgba(255,255,255,.28);margin-top:1px}
+@media(max-width:840px){.rev-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:500px){.rev-grid{grid-template-columns:1fr}}
+
+/* FAQ */
+.faq{padding:96px 0;background:var(--off)}
+.faq-layout{display:grid;grid-template-columns:1fr 1.65fr;gap:72px;align-items:start}
+.faq-sticky{position:sticky;top:90px}
+.faq-sticky h2{font-size:clamp(24px,3.2vw,40px);font-weight:900;color:var(--ink);margin-top:12px;margin-bottom:18px}
+.faq-sticky p{font-size:15px;color:var(--mid);line-height:1.65}
+.faq-list{display:flex;flex-direction:column;gap:10px}
+.faq-item{background:var(--white);border:1.5px solid var(--border);border-radius:9px;overflow:hidden;transition:border-color .2s}
+.faq-item.open{border-color:var(--amber)}
+.faq-btn{width:100%;background:none;border:none;cursor:pointer;display:flex;align-items:center;justify-content:space-between;padding:19px 22px;text-align:left;font-family:'Raleway',sans-serif;font-weight:700;font-size:15.5px;color:var(--ink);gap:14px;transition:color .18s}
+.faq-btn:hover{color:var(--amber)}.faq-item.open .faq-btn{color:var(--amber)}
+.faq-chev{flex-shrink:0;transition:transform .3s;color:var(--mid)}
+.faq-item.open .faq-chev{transform:rotate(180deg);color:var(--amber)}
+.faq-ans{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.faq-ans-inner{padding:0 22px 19px;font-size:15px;color:var(--mid);line-height:1.7}
+.faq-item.open .faq-ans{max-height:280px}
+@media(max-width:780px){.faq-layout{grid-template-columns:1fr}.faq-sticky{position:static}}
+
+/* SERVICE AREA */
+.area{padding:96px 0;background:var(--white)}
+.area-hdr{text-align:center;margin-bottom:52px}
+.area-hdr h2{font-size:clamp(24px,3.2vw,40px);font-weight:900;color:var(--ink);margin-top:12px}
+.area-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:36px;align-items:start}
+.area-map{border-radius:14px;overflow:hidden;height:460px;border:1px solid var(--border);box-shadow:0 8px 36px rgba(10,22,40,.1)}
+.area-map iframe{width:100%;height:100%;border:none;display:block}
+.area-right h3{font-family:'Raleway',sans-serif;font-weight:800;font-size:22px;color:var(--ink);margin-bottom:8px}
+.area-right>p{font-size:15px;color:var(--mid);line-height:1.65;margin-bottom:22px}
+.area-cities{display:flex;flex-direction:column}
+.area-city{display:flex;align-items:center;gap:11px;padding:12px 0;border-bottom:1px solid var(--border)}
+.area-city:last-child{border-bottom:none}
+.area-city svg{color:var(--amber);flex-shrink:0}
+.area-city span{font-size:15px;font-weight:600;color:var(--ink)}
+@media(max-width:840px){.area-layout{grid-template-columns:1fr}.area-map{height:340px}}
+
+/* CTA BAND */
+.cta-band{padding:96px 0;position:relative;overflow:hidden;text-align:center}
+.cta-band-bg{position:absolute;inset:0;background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=1920&q=85');background-size:cover;background-position:center}
+.cta-band-bg::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(8,16,32,.96) 0%,rgba(10,20,40,.88) 100%)}
+.cta-band-content{position:relative;z-index:2}
+.cta-band-content .eyebrow{color:var(--amber2);display:block;margin-bottom:14px}
+.cta-band-content h2{font-family:'Raleway',sans-serif;font-size:clamp(26px,4.2vw,50px);font-weight:900;color:#fff;line-height:1.1;margin-bottom:14px;letter-spacing:-.01em}
+.cta-phone{display:block;font-family:'Raleway',sans-serif;font-size:clamp(36px,5.5vw,64px);font-weight:900;color:#fff;letter-spacing:-.02em;line-height:1.1;margin:18px 0;transition:color .2s}
+.cta-phone:hover{color:var(--amber2)}
+.cta-hours{color:rgba(255,255,255,.58);font-size:16px;margin-bottom:32px}
+.cta-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+
+/* CONTACT */
+.contact{padding:96px 0;background:var(--off)}
+.contact-grid{display:grid;grid-template-columns:1fr 1.2fr;gap:60px;align-items:start}
+.contact-info h2{font-family:'Raleway',sans-serif;font-weight:800;font-size:clamp(22px,3vw,36px);color:var(--ink);margin:12px 0 14px}
+.contact-info p{font-size:15px;color:var(--mid);line-height:1.65}
+.cd-list{margin-top:26px;display:flex;flex-direction:column;gap:15px}
+.cd{display:flex;gap:13px;align-items:flex-start}
+.cd-icon{width:40px;height:40px;background:var(--warm);border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.cd-icon svg{color:var(--amber)}
+.cd-lbl{font-size:11.5px;font-weight:700;text-transform:uppercase;letter-spacing:.09em;color:var(--mid);margin-bottom:3px}
+.cd-val{font-size:15px;font-weight:600;color:var(--ink);line-height:1.45}
+.hours-tbl{margin-top:24px;background:var(--white);border-radius:10px;border:1px solid var(--border);overflow:hidden}
+.hr{display:flex;justify-content:space-between;padding:10px 16px;border-bottom:1px solid var(--border);font-size:14px}
+.hr:last-child{border-bottom:none}
+.hr .day{font-weight:600;color:var(--ink)}.hr .time{color:var(--mid)}
+.hr.closed .time{color:#dc2626}
+.contact-form{background:var(--white);border-radius:14px;padding:34px;border:1px solid var(--border);box-shadow:0 4px 28px rgba(10,22,40,.06)}
+.contact-form h3{font-family:'Raleway',sans-serif;font-weight:800;font-size:22px;color:var(--ink);margin-bottom:6px}
+.contact-form>p{font-size:14px;color:var(--mid);margin-bottom:22px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.fg{margin-bottom:15px}
+.fg label{display:block;font-size:12.5px;font-weight:700;color:var(--dark);margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+.fg input,.fg select,.fg textarea{width:100%;padding:11px 14px;border:1.5px solid var(--border);border-radius:7px;font-family:'Inter',sans-serif;font-size:14px;color:var(--ink);background:var(--off);transition:border-color .2s,box-shadow .2s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--amber);box-shadow:0 0 0 3px rgba(217,119,6,.1)}
+.fg textarea{resize:vertical;min-height:90px}
+.form-submit{width:100%;justify-content:center;font-size:15px;padding:14px}
+@media(max-width:780px){.contact-grid{grid-template-columns:1fr}.form-row{grid-template-columns:1fr}}
+
+/* FOOTER */
+footer{background:var(--ink);color:rgba(255,255,255,.62)}
+.footer-top{padding:58px 0 44px;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-grid{display:grid;grid-template-columns:1.8fr 1fr 1fr 1fr;gap:44px}
+.fbrand-icon{width:48px;height:48px;background:var(--amber);border-radius:10px;display:flex;align-items:center;justify-content:center;margin-bottom:14px;box-shadow:0 3px 14px rgba(217,119,6,.4)}
+.fbrand-icon svg{color:#fff}
+.fbrand-name{font-family:'Raleway',sans-serif;font-weight:900;font-size:21px;color:#fff;margin-bottom:3px}
+.fbrand-tag{font-size:13px;margin-bottom:15px;color:rgba(255,255,255,.42)}
+.footer-brand p{font-size:14px;line-height:1.7;max-width:255px}
+.fcol h4{font-family:'Raleway',sans-serif;font-weight:700;font-size:12.5px;color:rgba(255,255,255,.9);margin-bottom:16px;text-transform:uppercase;letter-spacing:.1em}
+.fcol ul{list-style:none;display:flex;flex-direction:column;gap:9px}
+.fcol ul li a{font-size:14px;transition:color .18s;display:flex;align-items:center;gap:5px}
+.fcol ul li a:hover{color:#fff}
+.footer-bottom{padding:18px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:13px}
+.frating{display:flex;align-items:center;gap:5px}
+.frating svg{color:var(--gold)}
+@media(max-width:840px){.footer-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.footer-grid{grid-template-columns:1fr}}
+
+/* MOBILE */
+@media(max-width:600px){
+  .container{padding:0 16px}
+  .btn{padding:13px 20px;font-size:14px}
+  .topbar{display:none}
+  .hero{min-height:auto}.hero-wrap{padding:56px 0 44px}
+  .hero-grid{display:flex;flex-direction:column;gap:28px;padding:0 4px;align-items:center;text-align:center}
+  .hero h1{font-size:32px;text-align:center}
+  .hero-badge{align-self:center;font-size:12px}
+  .hero-sub{font-size:15px;text-align:center;margin-left:auto;margin-right:auto}
+  .hero-ctas{flex-direction:column;width:100%;align-items:center}
+  .hero-ctas .btn{width:100%;justify-content:center}
+  .hero-proof{justify-content:center}.proof-div{display:none}
+  .hcard{width:100%;max-width:100%}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:20px}
+  .how{padding:60px 0}.how-steps{grid-template-columns:1fr}
+  .services{padding:60px 0}.services-hdr{grid-template-columns:1fr;gap:14px;margin-bottom:32px}
+  .services-hdr-r{align-items:flex-start}.services-hdr-r p{text-align:left}
+  .svc-grid{grid-template-columns:1fr}
+  .why{padding:60px 0}.why-grid{grid-template-columns:1fr}
+  .about{padding:60px 0}.about-grid{grid-template-columns:1fr;gap:36px}
+  .about-imgs{grid-template-columns:1fr;gap:10px}
+  .about-img-main{grid-column:1;height:220px}
+  .about-img-b,.about-img-c{height:160px}
+  .reviews{padding:60px 0}.rev-grid{grid-template-columns:1fr}
+  .rev-feature{padding:20px 18px}.rev-feature p{font-size:16px}
+  .faq{padding:60px 0}.faq-layout{grid-template-columns:1fr}.faq-sticky{position:static}
+  .area{padding:60px 0}.area-layout{grid-template-columns:1fr}.area-map{height:300px}
+  .cta-band{padding:60px 0}.cta-phone{font-size:34px}
+  .cta-btns{flex-direction:column;align-items:center}
+  .cta-btns .btn{width:100%;max-width:300px;justify-content:center}
+  .contact{padding:60px 0}.contact-grid{grid-template-columns:1fr;gap:32px}
+  .footer-top{padding:40px 0 28px}.footer-grid{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;align-items:center;text-align:center}
+  .nav-call-text{display:none}
+  .nav-call-btn{padding:9px 12px !important}
+}
+</style>
+</head>
+<body>
+
+<!-- SVG SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 015.13 12.7 19.79 19.79 0 012.12 4.18 2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></symbol>
+  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></symbol>
+  <symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/></symbol>
+  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></symbol>
+  <symbol id="i-oil" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 20h18M5 20V8h14v12"/><path d="M9 8V5h6v3"/><path d="M12 12v4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></symbol>
+  <symbol id="i-brake" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="3" x2="12" y2="7"/><line x1="12" y1="17" x2="12" y2="21"/><line x1="3" y1="12" x2="7" y2="12"/><line x1="17" y1="12" x2="21" y2="12"/></symbol>
+  <symbol id="i-engine" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 7V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v2"/><line x1="12" y1="12" x2="12" y2="16"/><line x1="10" y1="14" x2="14" y2="14"/></symbol>
+  <symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="6" width="18" height="12" rx="2"/><line x1="23" y1="10" x2="23" y2="14"/><line x1="7" y1="10" x2="7" y2="14"/><line x1="5" y1="12" x2="9" y2="12"/></symbol>
+  <symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><line x1="12" y1="2" x2="12" y2="8"/><line x1="12" y1="16" x2="12" y2="22"/><line x1="2" y1="12" x2="8" y2="12"/><line x1="16" y1="12" x2="22" y2="12"/></symbol>
+  <symbol id="i-inspect" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="9" y1="15" x2="15" y2="15"/><line x1="9" y1="11" x2="11" y2="11"/></symbol>
+  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></symbol>
+  <symbol id="i-car" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 17H3a2 2 0 01-2-2V9a2 2 0 012-2h16a2 2 0 012 2v6a2 2 0 01-2 2h-2"/><rect x="7" y="14" width="10" height="6" rx="1"/><path d="M5 7l2-4h10l2 4"/><circle cx="7.5" cy="17.5" r="1.5"/><circle cx="16.5" cy="17.5" r="1.5"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></symbol>
+  <symbol id="i-award" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="7"/><polyline points="8.21 13.89 7 23 12 20 17 23 15.79 13.88"/></symbol>
+</svg>
+
+<!-- MOBILE MENU -->
+<div class="mob-menu" id="mobMenu">
+  <div class="mob-menu-hdr">
+    <div class="nav-brand">
+      <div class="nav-mark"><svg width="20" height="20"><use href="#i-wrench"/></svg></div>
+      <div><div class="nav-bname">APEX Automotive</div><div class="nav-bcity">Union City, GA</div></div>
+    </div>
+    <button class="mob-close" id="mobClose">&#x2715;</button>
+  </div>
+  <nav class="mob-menu-links">
+    <a href="#services">Services</a>
+    <a href="#about">About</a>
+    <a href="#reviews">Reviews</a>
+    <a href="#faq">FAQ</a>
+    <a href="#area">Service Area</a>
+    <a href="#contact">Contact</a>
+  </nav>
+  <div class="mob-menu-foot">
+    <a href="tel:7708921357" class="btn btn-primary" style="width:100%;justify-content:center;font-size:16px">
+      <svg width="17" height="17"><use href="#i-phone"/></svg>
+      (770) 892-1357
+    </a>
+  </div>
+</div>
+
+<!-- TOP BAR -->
+<div class="topbar">
+  <div class="container">
+    <div class="topbar-inner">
+      <div class="topbar-items">
+        <span class="tb-item"><svg width="13" height="13"><use href="#i-pin"/></svg>6235 Roosevelt Hwy, Union City, GA 30291</span>
+        <span class="tb-item"><svg width="13" height="13"><use href="#i-clock"/></svg>Mon–Fri: 8 AM – 6 PM &nbsp;·&nbsp; Sat: 8 AM – 4 PM</span>
+        <span class="tb-item"><svg width="13" height="13"><use href="#i-star"/></svg>4.7 ★ · 62 Google Reviews</span>
+      </div>
+      <a href="tel:7708921357" class="tb-cta"><svg width="12" height="12"><use href="#i-phone"/></svg>(770) 892-1357</a>
+    </div>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav id="mainNav">
+  <div class="container">
+    <div class="nav-inner">
+      <div class="nav-brand">
+        <div class="nav-mark"><svg width="20" height="20"><use href="#i-wrench"/></svg></div>
+        <div>
+          <div class="nav-bname">APEX Automotive</div>
+          <div class="nav-bcity">Union City, GA</div>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#about">About</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#area">Service Area</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <a href="tel:7708921357" class="btn btn-primary nav-call-btn" style="padding:10px 20px;font-size:14px">
+          <svg width="15" height="15"><use href="#i-phone"/></svg>
+          <span class="nav-call-text">(770) 892-1357</span>
+        </a>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-wrap container">
+    <div class="hero-grid">
+      <div>
+        <div class="hero-badge rev">
+          <svg width="14" height="14"><use href="#i-star"/></svg>
+          4.7 Stars &nbsp;·&nbsp; 62 Google Reviews &nbsp;·&nbsp; Black-Owned
+        </div>
+        <h1 class="rev d1">Union City's Most<br><em>Trusted Auto Repair</em><br>Shop, Period.</h1>
+        <p class="hero-sub rev d2">APEX Automotive delivers honest diagnostics, expert repairs, and zero surprises on your bill. Every make, every model — handled by technicians who genuinely care.</p>
+        <div class="hero-ctas rev d3">
+          <a href="tel:7708921357" class="btn btn-primary" style="font-size:16px;padding:16px 32px">
+            <svg width="17" height="17"><use href="#i-phone"/></svg>
+            Call (770) 892-1357
+          </a>
+          <a href="#contact" class="btn btn-outline">Get a Free Estimate</a>
+        </div>
+        <div class="hero-proof rev d4">
+          <div class="proof-item"><svg width="15" height="15"><use href="#i-check"/></svg>All Makes &amp; Models</div>
+          <div class="proof-div"></div>
+          <div class="proof-item"><svg width="15" height="15"><use href="#i-check"/></svg>No Surprise Bills</div>
+          <div class="proof-div"></div>
+          <div class="proof-item"><svg width="15" height="15"><use href="#i-check"/></svg>Same-Day Service</div>
+        </div>
+      </div>
+      <div class="hcard rr d2">
+        <div class="hcard-hdr">
+          <div class="nav-mark" style="width:38px;height:38px;background:rgba(255,255,255,.15)"><svg width="18" height="18"><use href="#i-wrench"/></svg></div>
+          <div><div class="hcard-hdr-name">APEX Automotive</div><div class="hcard-hdr-sub">Union City, GA · Open Now</div></div>
+        </div>
+        <div class="hcard-body">
+          <div class="hci"><div class="hci-icon"><svg width="17" height="17"><use href="#i-phone"/></svg></div><div><div class="hci-lbl">Phone</div><div class="hci-val">(770) 892-1357</div></div></div>
+          <div class="hci"><div class="hci-icon"><svg width="17" height="17"><use href="#i-pin"/></svg></div><div><div class="hci-lbl">Address</div><div class="hci-val">6235 Roosevelt Hwy<br>Union City, GA 30291</div></div></div>
+          <div class="hci"><div class="hci-icon"><svg width="17" height="17"><use href="#i-clock"/></svg></div><div><div class="hci-lbl">Hours</div><div class="hci-val">Mon–Fri: 8 AM – 6 PM<br>Sat: 8 AM – 4 PM</div></div></div>
+          <div class="hci" style="border:none"><div class="hci-icon" style="background:rgba(240,180,41,.12)"><svg width="17" height="17" style="color:var(--gold)"><use href="#i-star"/></svg></div><div><div class="hci-lbl">Rating</div><div class="hci-val">4.7 ★ · 62 Google Reviews</div></div></div>
+        </div>
+        <a href="tel:7708921357" class="hcard-cta"><svg width="16" height="16"><use href="#i-phone"/></svg>Call Now — We Answer Fast</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats">
+  <div class="container">
+    <div class="stats-grid">
+      <div class="stat-item rev"><div class="stat-num"><span data-count="4">0</span>.7★</div><div class="stat-lbl">Google Rating</div></div>
+      <div class="stat-item rev d1"><div class="stat-num"><span data-count="62">0</span>+</div><div class="stat-lbl">5-Star Reviews</div></div>
+      <div class="stat-item rev d2"><div class="stat-num">All</div><div class="stat-lbl">Makes &amp; Models</div></div>
+      <div class="stat-item rev d3"><div class="stat-num">100%</div><div class="stat-lbl">Honest Pricing</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<section class="how">
+  <div class="container">
+    <div class="how-hdr">
+      <span class="eyebrow eyebrow-light rev">The Process</span>
+      <h2 class="rev d1">Simple. Transparent. Done Right.</h2>
+      <p class="rev d2">From your first call to driving away happy — here's exactly what to expect at APEX Automotive.</p>
+    </div>
+    <div class="how-steps">
+      <div class="how-step rev">
+        <div class="how-step-tag">Step 01</div>
+        <div class="how-step-big">01</div>
+        <div class="how-step-icon"><svg width="22" height="22"><use href="#i-phone"/></svg></div>
+        <h3>Call or Drop In</h3>
+        <p>Give us a call or bring your vehicle in. No appointment always necessary — we work to get you in fast.</p>
+      </div>
+      <div class="how-step rev d1">
+        <div class="how-step-tag">Step 02</div>
+        <div class="how-step-big">02</div>
+        <div class="how-step-icon"><svg width="22" height="22"><use href="#i-inspect"/></svg></div>
+        <h3>Honest Diagnosis</h3>
+        <p>Our technicians perform a thorough inspection and tell you exactly what's wrong — in plain English, no jargon.</p>
+      </div>
+      <div class="how-step rev d2">
+        <div class="how-step-tag">Step 03</div>
+        <div class="how-step-big">03</div>
+        <div class="how-step-icon"><svg width="22" height="22"><use href="#i-shield"/></svg></div>
+        <h3>You Approve the Quote</h3>
+        <p>We give you a clear, itemized estimate. We never start work without your approval — ever.</p>
+      </div>
+      <div class="how-step rev d3">
+        <div class="how-step-tag">Step 04</div>
+        <div class="how-step-big">04</div>
+        <div class="how-step-icon"><svg width="22" height="22"><use href="#i-car"/></svg></div>
+        <h3>Pick Up &amp; Drive Happy</h3>
+        <p>Your vehicle is ready on time. We walk you through everything we did before you pay a single dollar.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="container">
+    <div class="services-hdr">
+      <div>
+        <span class="eyebrow rl">What We Fix</span>
+        <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);margin-top:12px;line-height:1.12" class="rl d1">Expert Repair for<br>Every System in Your Car</h2>
+      </div>
+      <div class="services-hdr-r rr">
+        <p>From routine oil changes to complex engine overhauls — our certified technicians handle it all with precision and care.</p>
+        <a href="tel:7708921357" class="btn btn-dark" style="margin-top:16px">
+          <svg width="15" height="15"><use href="#i-phone"/></svg>
+          (770) 892-1357
+        </a>
+      </div>
+    </div>
+    <div class="svc-grid">
+      <div class="svc-card rev">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1504222490345-c075b7c8f381?w=800&q=80')"><div class="svc-img-lbl">Oil Change &amp; Fluids</div></div>
+        <div class="svc-body"><p>Fast, thorough oil changes and full-vehicle fluid checks to keep your engine running at peak performance.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>Conventional &amp; synthetic options</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Coolant, brake &amp; transmission fluid</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Multi-point inspection included</li></ul></div>
+      </div>
+      <div class="svc-card rev d1">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&q=80')"><div class="svc-img-lbl">Brake Service</div></div>
+        <div class="svc-body"><p>Complete brake system service to keep you and your family safe on the road — every time you stop.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>Pad, rotor &amp; caliper replacement</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Brake fluid flush</li><li><svg width="12" height="12"><use href="#i-check"/></svg>ABS diagnostics</li></ul></div>
+      </div>
+      <div class="svc-card rev d2">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=80')"><div class="svc-img-lbl">Engine Diagnostics</div></div>
+        <div class="svc-body"><p>State-of-the-art diagnostic tools to pinpoint exactly what's triggering your check engine light.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>OBD-II computer scanning</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Engine tune-ups</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Timing &amp; fuel system repair</li></ul></div>
+      </div>
+      <div class="svc-card rev">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1625047509248-ec889cbff17f?w=800&q=80')"><div class="svc-img-lbl">Transmission Repair</div></div>
+        <div class="svc-body"><p>Expert transmission diagnosis and repair for both automatic and manual vehicles of all makes.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>Fluid service &amp; filter change</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Clutch replacement</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Full rebuild when needed</li></ul></div>
+      </div>
+      <div class="svc-card rev d1">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1619642751034-765dfdf7c58e?w=800&q=80')"><div class="svc-img-lbl">Tires &amp; Alignment</div></div>
+        <div class="svc-body"><p>Get the most out of your tires with professional mounting, balancing, and precision wheel alignment.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>All-brand tire installation</li><li><svg width="12" height="12"><use href="#i-check"/></svg>4-wheel alignment</li><li><svg width="12" height="12"><use href="#i-check"/></svg>TPMS service</li></ul></div>
+      </div>
+      <div class="svc-card rev d2">
+        <div class="svc-img" style="background-image:url('https://images.unsplash.com/photo-1486262715619-67b85e0b08d3?w=800&q=85&crop=entropy&fit=crop&w=800&h=600')"><div class="svc-img-lbl">AC &amp; Electrical</div></div>
+        <div class="svc-body"><p>From A/C recharges to complex electrical fault-finding — we keep every system in your car working.</p><ul><li><svg width="12" height="12"><use href="#i-check"/></svg>AC recharge &amp; compressor repair</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Battery &amp; alternator testing</li><li><svg width="12" height="12"><use href="#i-check"/></svg>Wiring &amp; sensor diagnosis</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHY INDEPENDENT -->
+<section class="why">
+  <div class="container">
+    <div class="why-hdr">
+      <span class="eyebrow rev">Why Choose APEX</span>
+      <h2 class="rev d1">Independent Shop vs. The Dealership</h2>
+      <p class="rev d2" style="font-size:15px;color:var(--mid);margin-top:14px;max-width:500px;margin-left:auto;margin-right:auto;line-height:1.65">Here's what the dealerships don't want you to know.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-col why-col-bad rl">
+        <h3><svg width="20" height="20" style="color:var(--mid)"><use href="#i-x"/></svg>Dealership / Chain Shop</h3>
+        <div class="why-item"><svg width="18" height="18" style="color:#dc2626;flex-shrink:0"><use href="#i-x"/></svg><p>Inflated labor rates and unnecessary upsells on every visit</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:#dc2626;flex-shrink:0"><use href="#i-x"/></svg><p>Work done by rotating technicians who don't know your vehicle</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:#dc2626;flex-shrink:0"><use href="#i-x"/></svg><p>Long waits — days or weeks just to get an appointment</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:#dc2626;flex-shrink:0"><use href="#i-x"/></svg><p>Confusing invoices with vague line items you can't decipher</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:#dc2626;flex-shrink:0"><use href="#i-x"/></svg><p>You're just a ticket number, not a real customer</p></div>
+      </div>
+      <div class="why-col why-col-good rr">
+        <h3><svg width="20" height="20" style="color:var(--amber)"><use href="#i-check"/></svg>APEX Automotive</h3>
+        <div class="why-item"><svg width="18" height="18" style="color:var(--amber2);flex-shrink:0"><use href="#i-check"/></svg><p>Fair, transparent pricing — you approve every dollar before we start</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:var(--amber2);flex-shrink:0"><use href="#i-check"/></svg><p>Dedicated techs who learn your car and your history</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:var(--amber2);flex-shrink:0"><use href="#i-check"/></svg><p>Same-day and next-day availability for most repairs</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:var(--amber2);flex-shrink:0"><use href="#i-check"/></svg><p>Clear, itemized estimates explained in plain language</p></div>
+        <div class="why-item"><svg width="18" height="18" style="color:var(--amber2);flex-shrink:0"><use href="#i-check"/></svg><p>Owner Zain personally ensures every customer leaves satisfied</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="rl">
+        <div class="about-imgs">
+          <div class="about-img-main"></div>
+          <div class="about-img-b"></div>
+          <div class="about-img-c"></div>
+        </div>
+        <div class="about-badge">
+          <div class="about-badge-num">4.7★</div>
+          <div class="about-badge-lbl">62 Google Reviews</div>
+        </div>
+      </div>
+      <div class="rr">
+        <span class="eyebrow">About Us</span>
+        <h2 style="font-size:clamp(26px,3.5vw,42px);font-weight:900;color:var(--ink);margin:12px 0 16px;line-height:1.12">Built on Honesty.<br>Driven by Expertise.</h2>
+        <p style="font-size:16px;color:var(--mid);line-height:1.7">APEX Automotive is a Black-owned, community-rooted auto repair shop in Union City, GA. Owner Zain built this shop on a foundation of transparency, technical excellence, and genuine respect for every customer who walks through the door. We're not here to upsell you — we're here to fix your car right and get you back on the road with confidence.</p>
+        <div class="about-checks">
+          <div class="ac"><div class="ac-icon"><svg width="12" height="12"><use href="#i-check"/></svg></div><p><strong>Black-owned &amp; community-rooted</strong> in Union City, GA — serving our neighbors</p></div>
+          <div class="ac"><div class="ac-icon"><svg width="12" height="12"><use href="#i-check"/></svg></div><p><strong>Owner Zain personally oversees</strong> every repair to ensure quality and honesty</p></div>
+          <div class="ac"><div class="ac-icon"><svg width="12" height="12"><use href="#i-check"/></svg></div><p><strong>Certified, knowledgeable technicians</strong> who explain everything clearly</p></div>
+          <div class="ac"><div class="ac-icon"><svg width="12" height="12"><use href="#i-check"/></svg></div><p><strong>Pre-owned vehicles available</strong> — fully inspected and road-ready</p></div>
+          <div class="ac"><div class="ac-icon"><svg width="12" height="12"><use href="#i-check"/></svg></div><p><strong>Financing available</strong> — affordable solutions for every budget</p></div>
+        </div>
+        <a href="tel:7708921357" class="btn btn-primary" style="margin-top:28px">
+          <svg width="16" height="16"><use href="#i-phone"/></svg>
+          Call (770) 892-1357
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="rev-hdr">
+      <span class="eyebrow eyebrow-light rev">Customer Reviews</span>
+      <div class="rev-rating rev d1">4.7</div>
+      <div class="rev-stars rev d2">
+        <svg width="22" height="22"><use href="#i-star"/></svg>
+        <svg width="22" height="22"><use href="#i-star"/></svg>
+        <svg width="22" height="22"><use href="#i-star"/></svg>
+        <svg width="22" height="22"><use href="#i-star"/></svg>
+        <svg width="22" height="22"><use href="#i-star"/></svg>
+      </div>
+      <div class="rev-count rev d3">Based on 62 Google Reviews</div>
+      <h2 class="rev d4" style="color:#fff;font-size:clamp(22px,3.2vw,38px);font-weight:900;margin-top:10px">Real Customers. Real Results.</h2>
+    </div>
+    <div class="rev-feature rfade">
+      <p>"Zain, David, &amp; staff were very kind, accommodating, &amp; knowledgeable. Great service — fast and reliable, perfect prices. Didn't feel overcharged at all. The mechanics are intelligent and genuinely good people to do business with."</p>
+      <cite>— Verified Google Review · Union City, GA</cite>
+    </div>
+    <div class="rev-grid">
+      <div class="rev-card rev">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"I'm so glad I went to this place! The owner Zain made the whole process so smooth. I was nervous buying my Impala but he gave me confidence in my choice. Truly a standout experience."</p>
+        <div class="rc-author"><div class="rc-av">WC</div><div><div class="rc-name">Wednesday Carter</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rev-card rev d1">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"If I could give APEX Automotive more than 5 stars, I definitely would! From start to finish the experience was exceptional. Their communication, service, and attention to my vehicle were outstanding."</p>
+        <div class="rc-author"><div class="rc-av">QH</div><div><div class="rc-name">Quamesha Holliday</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rev-card rev d2">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"BLESSED! From beginning to end the experience was so graceful. Zain &amp; David really saved me from losing thousands of dollars. They are genuinely honest people who care about doing right by their customers."</p>
+        <div class="rc-author"><div class="rc-av">SW</div><div><div class="rc-name">Stephanie Warren</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rev-card rev">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"Fast, reliable, perfect prices. I didn't feel overcharged one bit. The mechanics are intelligent and genuinely great people to do business with. APEX is the only shop I trust with my car."</p>
+        <div class="rc-author"><div class="rc-av">GR</div><div><div class="rc-name">Google Reviewer</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rev-card rev d1">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"Loaner car available, friendly team, incredible diagnostic skills. I've been to three other shops in the area and APEX blows them all out of the water. Zain runs a first-class operation."</p>
+        <div class="rc-author"><div class="rc-av">GR</div><div><div class="rc-name">Google Reviewer</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+      <div class="rev-card rev d2">
+        <div class="rc-stars"><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg><svg width="13" height="13"><use href="#i-star"/></svg></div>
+        <p class="rc-text">"Took my car in after getting a ridiculous quote from a dealership. APEX fixed the same issue for half the price and explained every step. Honest, thorough, and genuinely kind people."</p>
+        <div class="rc-author"><div class="rc-av">GR</div><div><div class="rc-name">Google Reviewer</div><div class="rc-src">Google Review</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="container">
+    <div class="faq-layout">
+      <div class="faq-sticky">
+        <span class="eyebrow rl">FAQ</span>
+        <h2 class="rl d1">Questions?<br>We've Got You.</h2>
+        <p class="rl d2" style="margin-top:14px">Can't find what you're looking for? Just call us — Zain or David will answer.</p>
+        <a href="tel:7708921357" class="btn btn-primary rl d3" style="margin-top:24px">
+          <svg width="15" height="15"><use href="#i-phone"/></svg>
+          (770) 892-1357
+        </a>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item rr"><button class="faq-btn">Do I need an appointment, or can I walk in?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">Walk-ins are always welcome at APEX Automotive. We do our best to accommodate you on the spot. Calling ahead helps us prepare, but it's never required — we'll get to you as quickly as possible.</div></div></div>
+        <div class="faq-item rr d1"><button class="faq-btn">What if I don't know what's wrong with my car?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">That's exactly what we're here for. Just describe what you're hearing or experiencing and our technicians will run a full diagnostic. We'll explain everything clearly — no technical jargon, no confusion.</div></div></div>
+        <div class="faq-item rr d2"><button class="faq-btn">Do you work on all car brands and models?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">Yes — we work on all makes and models, domestic and foreign. From Chevrolet and Ford to BMW, Mercedes, Honda, and Toyota. If it has wheels, we can fix it.</div></div></div>
+        <div class="faq-item rr"><button class="faq-btn">How long do repairs usually take?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">Most routine services like oil changes and brake jobs are done same-day. Larger repairs depend on parts availability and complexity — we always give you an honest time estimate upfront and keep you updated throughout.</div></div></div>
+        <div class="faq-item rr d1"><button class="faq-btn">Will you call me before starting work or adding costs?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">Always. Owner Zain insists on this as a core policy. We will never begin repairs or add charges without your explicit approval. Transparency is non-negotiable at APEX Automotive.</div></div></div>
+        <div class="faq-item rr d2"><button class="faq-btn">What forms of payment do you accept?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">We accept cash, all major credit and debit cards, and digital payments. Financing options are also available for larger repairs — ask us about payment plans when you call.</div></div></div>
+        <div class="faq-item rr"><button class="faq-btn">Can I get a second opinion on a quote from another shop?<svg class="faq-chev" width="20" height="20"><use href="#i-chevron-down"/></svg></button><div class="faq-ans"><div class="faq-ans-inner">Absolutely — we encourage it. Bring us any estimate from another shop and we'll review it honestly. If their diagnosis is correct and their price is fair, we'll tell you. We'd rather earn your trust than just your money.</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICE AREA -->
+<section class="area" id="area">
+  <div class="container">
+    <div class="area-hdr">
+      <span class="eyebrow rev">Where We Serve</span>
+      <h2 class="rev d1">Proudly Serving Metro Atlanta</h2>
+      <p class="rev d2" style="font-size:15px;color:var(--mid);margin:12px auto 0;max-width:480px;line-height:1.65">Based in Union City, we serve drivers throughout South Metro Atlanta and Fulton County.</p>
+    </div>
+    <div class="area-layout">
+      <div class="area-map rl">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3318.5!2d-84.5432!3d33.5874!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f4e769791dd6bd%3A0x5ee9a3d9ced9d9d9!2s6235%20Roosevelt%20Hwy%2C%20Union%20City%2C%20GA%2030291!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="APEX Automotive location"></iframe>
+      </div>
+      <div class="rr">
+        <h3>Communities We Serve</h3>
+        <p>Conveniently located on Roosevelt Hwy — easy access from across the South Metro area.</p>
+        <div class="area-cities">
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>Union City</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>College Park</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>Fairburn</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>Palmetto</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>East Point</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>Hapeville</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>Riverdale</span></div>
+          <div class="area-city"><svg width="14" height="14"><use href="#i-pin"/></svg><span>South Fulton</span></div>
+        </div>
+        <p style="font-size:14px;color:var(--mid);margin-top:18px;line-height:1.65">Not sure we cover your area? <a href="tel:7708921357" style="color:var(--amber);font-weight:600">Give us a call</a> and we'll help.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <div class="cta-band-bg"></div>
+  <div class="container cta-band-content">
+    <span class="eyebrow">Ready to Get Your Car Fixed?</span>
+    <h2 class="rev d1">Don't Let Car Trouble<br>Slow You Down</h2>
+    <a href="tel:7708921357" class="cta-phone rev d2">(770) 892-1357</a>
+    <p class="cta-hours rev d3">Mon–Fri: 8 AM – 6 PM &nbsp;·&nbsp; Sat: 8 AM – 4 PM &nbsp;·&nbsp; Union City, GA</p>
+    <div class="cta-btns rev d4">
+      <a href="tel:7708921357" class="btn btn-primary" style="padding:16px 36px;font-size:16px"><svg width="17" height="17"><use href="#i-phone"/></svg>Call Now</a>
+      <a href="#contact" class="btn btn-outline" style="padding:16px 36px;font-size:16px">Request a Callback</a>
+    </div>
+  </div>
+</div>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="contact-grid">
+      <div class="rl">
+        <span class="eyebrow">Get In Touch</span>
+        <h2 class="contact-info h2">Contact APEX Automotive</h2>
+        <p class="contact-info p">Call us for the fastest response, or fill out the form and we'll get back to you quickly.</p>
+        <div class="cd-list">
+          <div class="cd"><div class="cd-icon"><svg width="17" height="17"><use href="#i-phone"/></svg></div><div><div class="cd-lbl">Phone</div><a href="tel:7708921357" class="cd-val" style="color:var(--amber)">(770) 892-1357</a></div></div>
+          <div class="cd"><div class="cd-icon"><svg width="17" height="17"><use href="#i-pin"/></svg></div><div><div class="cd-lbl">Address</div><div class="cd-val">6235 Roosevelt Hwy<br>Union City, GA 30291</div></div></div>
+        </div>
+        <div class="hours-tbl" style="margin-top:24px">
+          <div class="hr"><span class="day">Monday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hr"><span class="day">Tuesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hr"><span class="day">Wednesday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hr"><span class="day">Thursday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hr"><span class="day">Friday</span><span class="time">8:00 AM – 6:00 PM</span></div>
+          <div class="hr"><span class="day">Saturday</span><span class="time">8:00 AM – 4:00 PM</span></div>
+          <div class="hr closed"><span class="day">Sunday</span><span class="time">Closed</span></div>
+        </div>
+      </div>
+      <div class="rr">
+        <div class="contact-form">
+          <h3>Request a Free Estimate</h3>
+          <p>Tell us about your vehicle and we'll get back to you fast.</p>
+          <div class="form-row">
+            <div class="fg"><label>Full Name</label><input type="text" placeholder="John Smith"></div>
+            <div class="fg"><label>Phone</label><input type="tel" placeholder="(770) 000-0000"></div>
+          </div>
+          <div class="fg"><label>Vehicle (Year / Make / Model)</label><input type="text" placeholder="e.g. 2018 Toyota Camry"></div>
+          <div class="fg"><label>Service Needed</label>
+            <select>
+              <option value="">Select a service...</option>
+              <option>Oil Change &amp; Fluids</option>
+              <option>Brake Service</option>
+              <option>Engine Diagnostics</option>
+              <option>Transmission Repair</option>
+              <option>Tires &amp; Alignment</option>
+              <option>AC &amp; Electrical</option>
+              <option>Other / Not Sure</option>
+            </select>
+          </div>
+          <div class="fg"><label>Describe the Issue</label><textarea placeholder="What's your car doing? Any sounds, warning lights, or symptoms..."></textarea></div>
+          <button class="btn btn-primary form-submit" onclick="handleSubmit(event)"><svg width="16" height="16"><use href="#i-arrow"/></svg>Send My Request</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="fbrand-icon"><svg width="24" height="24"><use href="#i-wrench"/></svg></div>
+          <div class="fbrand-name">APEX Automotive</div>
+          <div class="fbrand-tag">Union City, GA · Black-Owned</div>
+          <p>Honest, expert auto repair for all makes and models. Serving Union City and South Metro Atlanta with pride since day one.</p>
+        </div>
+        <div class="fcol">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services"><svg width="11" height="11"><use href="#i-arrow"/></svg>Oil Change</a></li>
+            <li><a href="#services"><svg width="11" height="11"><use href="#i-arrow"/></svg>Brake Service</a></li>
+            <li><a href="#services"><svg width="11" height="11"><use href="#i-arrow"/></svg>Engine Diagnostics</a></li>
+            <li><a href="#services"><svg width="11" height="11"><use href="#i-arrow"/></svg>Transmission</a></li>
+            <li><a href="#services"><svg width="11" height="11"><use href="#i-arrow"/></svg>Tires &amp; Alignment</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="#about"><svg width="11" height="11"><use href="#i-arrow"/></svg>About Us</a></li>
+            <li><a href="#reviews"><svg width="11" height="11"><use href="#i-arrow"/></svg>Reviews</a></li>
+            <li><a href="#faq"><svg width="11" height="11"><use href="#i-arrow"/></svg>FAQ</a></li>
+            <li><a href="#area"><svg width="11" height="11"><use href="#i-arrow"/></svg>Service Area</a></li>
+            <li><a href="#contact"><svg width="11" height="11"><use href="#i-arrow"/></svg>Contact</a></li>
+          </ul>
+        </div>
+        <div class="fcol">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:7708921357"><svg width="11" height="11"><use href="#i-phone"/></svg>(770) 892-1357</a></li>
+            <li><a href="#contact"><svg width="11" height="11"><use href="#i-mail"/></svg>Request Estimate</a></li>
+            <li><a href="https://maps.google.com/?q=6235+Roosevelt+Hwy+Union+City+GA" target="_blank" rel="noopener"><svg width="11" height="11"><use href="#i-pin"/></svg>6235 Roosevelt Hwy</a></li>
+            <li style="padding-left:17px;font-size:14px">Union City, GA 30291</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="footer-bottom">
+      <span>© 2025 APEX Automotive · All rights reserved · Union City, GA</span>
+      <div class="frating">
+        <svg width="13" height="13"><use href="#i-star"/></svg>
+        <svg width="13" height="13"><use href="#i-star"/></svg>
+        <svg width="13" height="13"><use href="#i-star"/></svg>
+        <svg width="13" height="13"><use href="#i-star"/></svg>
+        <svg width="13" height="13"><use href="#i-star"/></svg>
+        <span style="margin-left:6px">4.7 · 62 Google Reviews</span>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+// Mobile menu
+const hamburger=document.getElementById('hamburger');
+const mobMenu=document.getElementById('mobMenu');
+const mobClose=document.getElementById('mobClose');
+hamburger.addEventListener('click',()=>{mobMenu.classList.add('open');document.body.style.overflow='hidden'});
+mobClose.addEventListener('click',()=>{mobMenu.classList.remove('open');document.body.style.overflow=''});
+mobMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{mobMenu.classList.remove('open');document.body.style.overflow=''}));
+
+// Nav scroll
+window.addEventListener('scroll',()=>{document.getElementById('mainNav').classList.toggle('scrolled',scrollY>20)},{passive:true});
+
+// FAQ
+document.querySelectorAll('.faq-btn').forEach(btn=>{
+  btn.addEventListener('click',()=>{
+    const item=btn.closest('.faq-item');
+    const open=item.classList.contains('open');
+    document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+    if(!open)item.classList.add('open');
+  });
+});
+
+// Reveal
+const obs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.rev,.rl,.rr,.rfade').forEach(el=>obs.observe(el));
+
+// Counters
+document.querySelectorAll('[data-count]').forEach(el=>{
+  const co=new IntersectionObserver(entries=>{
+    if(entries[0].isIntersecting){
+      const t=+el.dataset.count;let s=null;
+      function step(ts){if(!s)s=ts;const p=Math.min((ts-s)/1500,1);el.textContent=Math.floor(p*t);if(p<1)requestAnimationFrame(step);else el.textContent=t;}
+      requestAnimationFrame(step);co.unobserve(el);
+    }
+  },{threshold:.5});co.observe(el);
+});
+
+// Form
+function handleSubmit(e){e.preventDefault();const b=e.target;b.innerHTML='<svg width="16" height="16"><use href="#i-check"/></svg> Request Sent!';b.style.background='var(--amber3)';b.disabled=true;}
+</script>
+</body>
+</html>
